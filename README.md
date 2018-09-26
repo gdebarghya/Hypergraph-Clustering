@@ -23,7 +23,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contents of the repository
-The repository contains Matlab implementation of all methods and experiments, and data files used by the codes. 
+The repository contains Matlab implementation of all methods and experiments. 
 The codes grouped based on the problem considered:
 
 #### Subspace clustering
@@ -31,6 +31,8 @@ The main codes for the generating the results in the paper are:
 * `run_sc_synthetic.m`: Comparison of methods on synthetic data
 * `run_sc_motionseg.m`: Comparison of methods on Hopkins 155 motion segmentation benchmark
 * `tetris/tetris.m`: main code for the proposed Tetris subspace clustering algorithm
+
+The Hopkins 155 data set needs to be included in the folder. The dataset is available [here](http://vision.jhu.edu/data/fetchdata.php?id=1).
 
 The codes are based on implementations by Dohyung Park for the paper [Greedy Subspace Clustering](arxiv.org/pdf/1410.8864.pdf). 
 We have made few modifications in the experimental setup on synthetic data. 
