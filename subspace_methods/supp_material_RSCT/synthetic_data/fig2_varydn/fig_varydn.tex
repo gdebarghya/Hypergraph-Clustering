@@ -1,0 +1,50 @@
+\documentclass[sansserif,mathserif]{article}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+
+\usetikzlibrary{calc,shadows}
+\usetikzlibrary{pgfplots.groupplots}
+\newcommand{\mat}[1]{\mathbf{#1}}  
+
+\pgfplotsset{width=7cm,compat=1.3}
+\pgfplotsset{colormap/cool} 
+
+
+
+\begin{document}
+
+\begin{figure}
+\centering
+{
+\begin{tikzpicture}[scale=1.1,font=\scriptsize] 
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=1.8cm,vertical sep=0.2cm,xlabels at=edge bottom, ylabels at=edge left,yticklabels at=edge left},
+%ylabel=$d$,
+%xlabel=$\rho$,
+%x dir=reverse,
+width=3.35cm,height=2.85cm,%/tikz/font=\small, 
+colorbar]
+
+    \nextgroupplot[title={FDE }]% 1
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.5,domain=0:1]
+	  file {./FDE_varyd.dat};
+	    
+  \nextgroupplot[title={CE},colorbar]% 2
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.5]
+ file {./CE_varyd.dat};
+ 	
+\nextgroupplot[title={EL}, colorbar]% 3
+	  \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+  mark size=1.5]
+   file {./LS_varyd.dat};
+  \end{groupplot}
+\end{tikzpicture}
+}
+\caption{\label{fig:varyd}Clustering error metrics as a function of the dimension of the subspaces, $d$, on the vertical and $n$ on the horizontal axis.}
+
+\end{figure}
+
+\end{document}

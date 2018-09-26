@@ -1,0 +1,61 @@
+\documentclass[sansserif,mathserif]{article}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+
+\usetikzlibrary{calc,shadows}
+\usetikzlibrary{pgfplots.groupplots}
+\newcommand{\mat}[1]{\mathbf{#1}}  
+
+\pgfplotsset{width=7cm,compat=1.3}
+\pgfplotsset{colormap/cool} 
+
+
+
+\begin{document}
+
+
+\begin{figure}
+\centering
+{
+%\tikzset{external/force remake}
+\begin{tikzpicture}[scale=1.2,font=\scriptsize] 
+\begin{groupplot}[group style={group size=9 by 1,horizontal sep=0.15cm,vertical sep=0.0cm,xlabels at=edge bottom, ylabels at=edge left,xticklabels at=edge bottom,yticklabels at=edge left},
+width=3.6cm,height=2.6cm,%/tikz/font=\small,
+]%,point meta min = 0, point meta max=0.8
+]
+  \nextgroupplot[title={$s=0$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.8]
+	 file {./erasure_0.dat};
+	 	  
+  \nextgroupplot[title={$s=5$}]% 2
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.8]
+	 file {./erasure_5.dat};	
+  
+  \nextgroupplot[title={$s=10$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.8]
+	 file {./erasure_10.dat};
+
+  \nextgroupplot[title={$s=15$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.8]
+	 file {./erasure_15.dat};
+	 
+  \nextgroupplot[title={$s=20$},colorbar]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.8]
+	 file {./erasure_20.dat};	
+  \end{groupplot}
+\end{tikzpicture}
+}
+%\vspace{-0.4cm}
+\caption{\label{fig:varydsc}CE as a function of the dimension of the subspaces, $d$, on the vertical and $n$ on the horizontal axis for $s$ missing entries in the data vectors.}
+\end{figure}
+
+
+
+\end{document}

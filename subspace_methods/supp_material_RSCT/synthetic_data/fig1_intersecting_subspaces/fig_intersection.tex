@@ -1,0 +1,39 @@
+\documentclass[sansserif,mathserif]{article}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+
+\usetikzlibrary{calc,shadows}
+\usetikzlibrary{pgfplots.groupplots}
+\newcommand{\mat}[1]{\mathbf{#1}}  
+
+\pgfplotsset{width=7cm,compat=1.3}
+
+
+\newcommand\pp[0]{
+\begin{tikzpicture}
+\fill [black,opacity=0.5] circle (4pt);
+\end{tikzpicture}
+}
+
+\begin{document}
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1] 
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=0.8cm,vertical sep=1.2cm,xlabels at=edge bottom, ylabels at=edge left},
+width=0.3\textwidth,/tikz/font=\small]
+    \nextgroupplot[title={FDE}]% 1
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=1]{./FDE_SSintersect_TSC.dat}; 
+	 \nextgroupplot[title={CE}]% 2
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=1]{./CE_SSintersect_TSC.dat}; 
+	 \nextgroupplot[title={EL}]% 3
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=1]{./LS_SSintersect_TSC.dat}; 	
+  \end{groupplot}
+\end{tikzpicture}
+\caption{\label{fig:intersect} Clustering error metrics as a function of the dimension of the intersection $t$.}
+\end{figure}
+
+\end{document}

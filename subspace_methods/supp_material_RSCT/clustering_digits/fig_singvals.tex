@@ -1,0 +1,49 @@
+\documentclass[sansserif,mathserif]{article}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+
+\usetikzlibrary{calc,shadows}
+\usetikzlibrary{pgfplots.groupplots}
+\newcommand{\mat}[1]{\mathbf{#1}}  
+
+\pgfplotsset{width=7cm,compat=1.3}
+
+
+\newcommand\pp[0]{
+\begin{tikzpicture}
+\fill [black,opacity=0.5] circle (4pt);
+\end{tikzpicture}
+}
+
+\pagestyle{empty}
+\begin{document}
+
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1] 
+%ylabel=$d$,
+%xlabel=$\gamma$,
+    \begin{axis}[
+        	xlabel=number of singular value,
+	ylabel=singular value,
+	xmin = 0, xmax=100,
+	]
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=1]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=2]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=3]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=4]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=5]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=6]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=7]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=8]{./sval.dat};
+	\addplot +[mark=none,solid,blue] table[x index=0,y index=9]{./sval.dat};
+	%\addplot +[mark=none,solid,blue] table[x index=0,y index=10]{./svals.dat};	
+	\end{axis}
+\end{tikzpicture}
+\caption{\label{fig:svals} Singular values of the matrices with columns consisting of vectorized images of a single digit.}
+\end{figure}
+\end{document}

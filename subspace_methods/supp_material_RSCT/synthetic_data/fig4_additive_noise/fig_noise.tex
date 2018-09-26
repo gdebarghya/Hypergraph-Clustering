@@ -1,0 +1,74 @@
+\documentclass[sansserif,mathserif]{article}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+
+\usetikzlibrary{calc,shadows}
+\usetikzlibrary{pgfplots.groupplots}
+\newcommand{\mat}[1]{\mathbf{#1}}  
+
+\pgfplotsset{width=7cm,compat=1.3}
+\pgfplotsset{colormap/cool} 
+
+
+
+\begin{document}
+
+
+\begin{figure}
+\centering
+{
+\begin{tikzpicture}[scale=0.8] 
+\begin{groupplot}[group style={group size=4 by 2,horizontal sep=0.25cm,vertical sep=0.93cm,xlabels at=edge bottom, ylabels at=edge left,xticklabels at=edge bottom,yticklabels at=edge left},
+width=3.6cm,height=3.1cm,/tikz/font=\small],point meta min = 0, point meta max=0.8]
+  
+  \nextgroupplot[title={$\sigma^2=0$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.dat};
+	 	  
+  \nextgroupplot[title={$\sigma^2=0.1$}]% 2
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.1.dat};	
+  
+  \nextgroupplot[title={$\sigma^2=0.2$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.2.dat};
+
+  \nextgroupplot[title={$\sigma^2=0.3$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.3.dat};
+	 
+  \nextgroupplot[title={$\sigma^2=0.4$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.4.dat};
+	 
+  \nextgroupplot[title={$\sigma^2=0.5$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.5.dat};
+	 
+  \nextgroupplot[title={$\sigma^2=0.6$}]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6]
+	 file {./CE_sig0.6.dat};
+	 
+  \nextgroupplot[title={$\sigma^2=0.7$}, colorbar]% 5
+	 \addplot[mark=square*,only marks, scatter, scatter src=explicit,
+	 mark size=1.6,colorbar=true]
+	 file {./CE_sig0.7.dat};
+	 	
+  \end{groupplot}
+\end{tikzpicture}
+}
+%\vspace{-0.4cm}
+\caption{\label{fig:noise}CE as a function of the dimension of the subspaces, $d$, on the vertical and $n$ on the horizontal axis for different noise variances $\sigma^2$.}
+\end{figure}
+
+
+\end{document}
